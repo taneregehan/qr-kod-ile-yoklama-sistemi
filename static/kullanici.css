@@ -1,0 +1,311 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+
+* {
+  font-family: Open Sans;
+}
+
+.form-giris {
+  margin-top: 100px;
+  margin-left: calc(50% - 250px);
+  margin-bottom: 250px;
+  font-size: large;
+  max-width: 500px;
+  padding: 15px;
+ 
+  background-position: center;
+  border-style: double;
+}
+.form-ekle {
+  font-size: medium;
+  max-width: 500px;
+  padding: 15px;
+  margin: 0 auto;
+  background-position: center;
+}
+.index {
+  font-size: large;
+  max-width: 500px;
+  margin-top: 200px;
+  margin-left: 750px;
+  
+}
+.index a {
+  font-size: large;
+  margin-left: 140px;
+  
+}
+.index img {
+ 
+  margin-left: 50px;
+  margin-bottom: 20px;
+  
+}
+.index p {
+ 
+  margin-left: 50px;
+  margin-bottom: 20px;
+  
+}
+.resim{
+  margin-top: auto;
+  margin-bottom: auto;
+
+}
+.form-signin .form-signin-heading{
+  margin-bottom: 20px;
+  text-align: center;
+  color: #666;
+  
+}
+.form-signin .checkbox {
+  margin-bottom: 10px;
+
+
+}
+.form-signin .checkbox {
+  font-weight: bold;
+}
+.form-control-label{
+  font-weight: bold;
+  font-size: medium;
+
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 20px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.tbl_user{
+  margin-top: 50px;
+  font-size: medium;
+  margin-left: 50px;
+  margin-right: 50px;
+
+}
+.dashboard_info{
+  margin-top: 50px;
+  font-size: medium;
+  margin-left: 1550px;
+  margin-right: 50px;
+  z-index: 1000;
+  position:relative;
+
+
+}
+
+.video{
+ 
+  position: absolute;
+  z-index: -100;
+}
+
+.harita{
+ margin-top: 400px;
+ margin-left: 1290px;
+  
+
+}
+.sayfa{
+  justify-content: center;
+}
+
+.loginpanel {
+  margin-top: 100px;
+  height: 50%;
+  color: grey;
+  background-position: center;
+  margin-bottom: 300;
+  
+  
+}
+body{
+  background-color: #cccccc;
+  
+}
+.form-control{
+  background-color: gainsboro;
+  
+  
+}
+
+.footer-distributed{
+  background: #666;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font: bold 16px sans-serif;
+  padding: 130px 190px;
+  margin-top: 800px;
+  height: auto;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+  display: inline-block;
+  vertical-align: left;
+}
+
+
+.footer-distributed .footer-left{
+  width: 40%;
+}
+
+
+
+.footer-distributed h3{
+  color:  #ffffff;
+  font: normal 36px 'Open Sans', cursive;
+  margin: 0;
+}
+
+.footer-distributed h3 span{
+  color:  lightseagreen;
+}
+
+
+.baslik h3 span{
+  color:  lightseagreen;
+}
+.baslik h3 {
+  color:  white;
+}
+
+
+
+
+
+
+
+.footer-distributed .footer-company-name{
+  color:  #222;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+  width: 35%;
+}
+
+
+
+.footer-distributed .footer-center i{
+  background-color:  #33383b;
+  color: #ffffff;
+  font-size: 25px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 42px;
+  margin: 10px 15px;
+  vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+  font-size: 17px;
+  line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+  display: inline-block;
+  color: #ffffff;
+  font-weight:400;
+  vertical-align: middle;
+  margin:0;
+}
+
+.footer-distributed .footer-center p span{
+  display:block;
+  font-weight: normal;
+  font-size:14px;
+  line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+  color:  lightseagreen;
+  text-decoration: none;;
+}
+
+.footer-distributed .footer-links a:before {
+  content: "|";
+  font-weight:300;
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+  content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+  width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+  line-height: 20px;
+  color:  #92999f;
+  font-size: 13px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.footer-distributed .footer-company-about span{
+  display: block;
+  color:  #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons{
+  margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background-color:  white;
+  border-radius: 2px;
+
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+
+  margin-right: 3px;
+  margin-bottom: 5px;
+}
+
+
+
+
+

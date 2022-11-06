@@ -1,0 +1,90 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Admin Paneli
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='kullanici.css')}}">
+{% endblock %}
+
+{% block content %}
+<!-- Navigation -->
+
+
+
+<nav>
+
+  {% include "/navbar.html" %}
+</nav>
+
+<div class="video">
+
+  <video loop="" autoplay="" style="width: 100%;" class="" muted="">
+    <source src="https://cdn.bartin.edu.tr/aday/adayogrenci.mp4" type="video/mp4">
+  </video>
+</div>
+
+
+  <div class="dashboard_info">
+
+    <img src="/static/images/logo2.jpg" height="10%" width="10%">
+
+    <h2>Hoşgeldiniz, <strong>{{isim}} </strong></h2>
+    <h5>ID : {{id}}</h5>
+    <h5>Numara : {{numara}}</h5>
+    <h5>Sınıf : {{sinif}}</h5>
+    <h5>Bölüm : {{bolum}}</h5>
+
+
+
+
+  </div>
+
+
+
+
+<footer class="footer-distributed">
+
+  <div class="footer-left">
+
+    <h3>BA<span>RÜ</span></h3>
+
+
+
+    <p class="footer-company-name">Bartın Üniversitesi © 2008</p>
+  </div>
+
+  <div class="footer-center">
+
+    <div>
+      <i class="fa fa-map-marker"></i>
+      <p><span>74110/74100</span> Kutlubeyyazıcılar/Bartın Merkez/Bartın</p>
+    </div>
+
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>(0378) 501 10 00</p>
+    </div>
+
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="mailto:info@bartin.edu.tr"></a>info@bartin.edu.tr</p>
+    </div>
+
+  </div>
+
+  <div class="footer-right">
+
+
+
+
+  </div>
+
+</footer>
+
+
+
+
+{% endblock %}

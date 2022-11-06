@@ -1,0 +1,95 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Kullanıcı İşlemleri
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='kullanici.css')}}">
+{% endblock %}
+
+{% block content %}
+
+<nav>
+
+  {% include "/navbar.html" %}
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+  <div class="form-ekle">
+    <form action='/ders_ekle' method = "POST">
+        <h2>Ders Ekle</h2>
+
+        
+       
+        {{wtf.form_field(form.ders_adi)}}
+        {{wtf.form_field(form.ders_kodu)}}
+        {{wtf.form_field(form.ders_sinif)}}
+        {{wtf.form_field(form.ders_bolum)}}
+        {{wtf.form_field(form.ders_egitmen)}}
+    
+        
+        <button class="btn btn-lg btn-secondary btn-block" type="submit">Ekle</button>
+          </form>
+  </div>
+
+
+      
+    
+
+
+
+  <footer class="footer-distributed">
+
+    <div class="footer-left">
+
+      <h3>BA<span>RÜ</span></h3>
+
+  
+
+      <p class="footer-company-name">Bartın Üniversitesi © 2008</p>
+    </div>
+
+    <div class="footer-center">
+
+      <div>
+        <i class="fa fa-map-marker"></i>
+        <p><span>74110/74100</span> Kutlubeyyazıcılar/Bartın Merkez/Bartın</p>
+      </div>
+
+      <div>
+        <i class="fa fa-phone"></i>
+        <p>(0378) 501 10 00</p>
+      </div>
+
+      <div>
+        <i class="fa fa-envelope"></i>
+        <p><a href="mailto:info@bartin.edu.tr"></a>info@bartin.edu.tr</p>
+      </div>
+
+    </div>
+
+    <div class="footer-right">
+
+      
+      
+
+    </div>
+
+  </footer>
+  {% endblock %}s

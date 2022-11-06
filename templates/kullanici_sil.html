@@ -1,0 +1,137 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Kullanıcı İşlemleri
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='kullanici.css')}}">
+{% endblock %}
+
+{% block content %}
+<nav>
+
+  {% include "/navbar.html" %}
+</nav>
+
+
+
+<div class="tbl_user">
+  <p style="font-family: Arial, sans-serif;
+	font-size: 24px;
+	color:black;">
+  <strong>Kullanıcılar Tablosu</strong></p>
+<table class="table table-secondary" >
+  <thead>
+     <th scope="col">ID</th>
+     <th scope="col">Public ID</th>
+     <th scope="col">İsim</th>
+     <th scope="col">Bölüm</th>
+     <th scope="col">Numara</th>
+     <th scope="col">Mail</th> 
+     <th scope="col">Sınıf</th>
+     <th scope="col">Şifre</th>
+     <th scope="col">Admin</th>
+     <th scope="col">İşlem</th>
+ </thead>
+<tbody>
+  {% for k in kullaniciIslem %}
+  <tr>
+    <th>{{ loop.index }}</th>
+    <th>{{k.public_id}}</th>
+    <th>{{k.isim}}</th>
+    <th>{{k.bolum}}</th>
+    <th>{{k.numara}}</th>
+    <th>{{k.mail}}</th>
+    <th>{{k.sinif}}</th>
+    <th style="font-size: x-small;">{{k.sifre}}</th>
+    <th>{{k.admin}}</th>
+    <th><a class="btn btn-secondary" href="{{ url_for('kullanici_silme', id=k.public_id) }}">Sil</a></th>
+  </tr>
+  {% endfor %}
+
+</tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section></section>
+
+<footer class="footer-distributed" style="margin-top:50% ; height: 10;">
+
+      <div class="footer-left">
+
+        <h3>BA<span>RÜ</span></h3>
+
+    
+
+        <p class="footer-company-name">Bartın Üniversitesi © 2008</p>
+      </div>
+
+      <div class="footer-center">
+
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p><span>74110/74100</span> Kutlubeyyazıcılar/Bartın Merkez/Bartın</p>
+        </div>
+
+        <div>
+          <i class="fa fa-phone"></i>
+          <p>(0378) 501 10 00</p>
+        </div>
+
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:info@bartin.edu.tr"></a>info@bartin.edu.tr</p>
+        </div>
+
+      </div>
+
+      <div class="footer-right">
+
+        
+        
+
+      </div>
+
+    </footer>
+
+
+{% endblock %}

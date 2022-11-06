@@ -1,0 +1,74 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="{{url_for('dashboard')}}">
+        
+        <img src="https://cdn.bartin.edu.tr/aday1/d4435c754df48a0482b73618ffaab6a3/altbannerlogo.png" style="height:70px;width:70px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{url_for('dashboard')}}">Anasayfa</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Kullanıcı İşlemleri</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{{ url_for('kullanici_listele') }}">Kullanıcıları Listele</a>
+              <a class="dropdown-item" href="{{ url_for('kullanici_ekle') }}">Kullanıcı Ekle</a>
+              <a class="dropdown-item" href="{{ url_for('kullanici_guncelle_render') }}">Kullanıcı Güncelle</a>
+              <a class="dropdown-item" href="{{ url_for('kullanici_sil_render') }}">Kullanıcı Sil</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Ders İşlemleri</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{{ url_for('ders_islemleri') }}">Ders Listele</a>
+              <a class="dropdown-item" href="{{ url_for('ders_ekle') }}">Ders Ekle</a>
+              <a class="dropdown-item" href="{{ url_for('ders_guncelle_render') }}">Ders Güncelle</a>
+              <a class="dropdown-item" href="{{ url_for('ders_sil_render') }}">Ders Sil</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Eğitmen İşlemleri</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{{ url_for('egitmen_islemleri') }}">Eğitmen Listele</a>
+              <a class="dropdown-item" href="{{ url_for('egitmen_ekle') }}">Eğitmen Ekle</a>
+              <a class="dropdown-item" href="{{ url_for('egitmen_guncelle_render') }}">Eğitmen Güncelle</a>
+              <a class="dropdown-item" href="{{ url_for('egitmen_sil_render') }}">Eğitmen Sil</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">QR İşlemleri</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Kullanıcıları Listele</a>
+              <a class="dropdown-item" href="#">QR Ekle</a>
+              <a class="dropdown-item" href="#">QR Güncelle</a>
+              <a class="dropdown-item" href="#">QR Sil</a>
+            </div>
+          </li>
+          <li>
+          <div class=" nav-item dropdown ">
+            <li class="ms-auto col">
+              <a class="nav-link" href="https://ubys.bartin.edu.tr/">UBYS</a>
+            </li>
+            <li>
+          <div class="row">
+            <li class="ms-auto col">
+              <a class="nav-link" href="{{ url_for('logout') }}">Çıkış</a>
+              
+            </li>
+           
+          </div>
+          
+        </ul>
+        
+      </div>
+      <div class="baslik">
+        <h3>BA<span>RÜ</span></h3>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,279 @@
+<tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+
+
+
+
+
+
+  <div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div class="dropdown-content">
+  <a href="#">Link 1</a>
+  <a href="#">Link 2</a>
+  <a href="#">Link 3</a>
+  </div>
+</div>
+
+
+{{ url_for('kullanici_islemleri') }}
+
+
+  
+<tbody>
+ {% for k in kullaniciIslem %}
+ <tr
+
+ ><td>{{ loop.index }}</td>
+
+ <td>{{k.public_id}}</td>
+ <td>{{k.isim}}</td>
+ <td>{{k.sifre}}</td>
+ <td>{{k.bolum}}</td>
+ <td>{{k.numara}}</td>
+ <td>{{k.sinif}}</td>
+ 
+ {% endfor %}
+</tbody>
+
+
+
+
+
+
+@app.route('/<int:id>/edit',methods = ['GET','POST'])
+def update(id):
+    student = StudentModel.query.filter_by(id=id).first()
+
+    #hobbies = student.hobbies.split(' ')
+    # print(hobbies)
+    if request.method == 'POST':
+        if student:
+            db.session.delete(student)
+            db.session.commit()
+    #     tv = request.form['tv']    
+    #     if tv is None:
+    #               pass
+
+    #    # print('Form:' + str(request.form))    
+      
+    #     cricket = request.form['cricket']
+    #     movies = request.form['movies']
+    #     hobbies = tv + ' ' +  cricket + ' ' + movies
+    #     print('H' + hobbies)
+        hobby = request.form.getlist('hobbies')
+        #hobbies = ','.join(map(str, hobby))
+        hobbies =  ",".join(map(str, hobby)) 
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        email = request.form['email']
+        password = request.form['password']
+        gender = request.form['gender']
+        hobbies = hobbies 
+        country = request.form['country']
+
+        student = StudentModel(
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            password=password,
+            gender=gender, 
+            hobbies=hobbies,
+            country = country
+        )
+        db.session.add(student)
+        db.session.commit()
+        return redirect('/')
+        return f"Student with id = {id} Does nit exist"
+ 
+    return render_template('update.html', student = student)
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+ @app.route('/add', methods=['POST'])
+def add_user():
+	conn = None
+	cursor = None
+	try:		
+		_name = request.form['inputName']
+		_email = request.form['inputEmail']
+		_password = request.form['inputPassword']
+		# validate the received values
+		if _name and _email and _password and request.method == 'POST':
+			#do not save password as a plain text
+			_hashed_password = generate_password_hash(_password)
+			# save edits
+			sql = "INSERT INTO tbl_user(user_name, user_email, user_password) VALUES(%s, %s, %s)"
+			data = (_name, _email, _hashed_password,)
+			conn = mysql.connect()
+			cursor = conn.cursor()
+			cursor.execute(sql, data)
+			conn.commit()
+			flash('User added successfully!')
+			return redirect('/')
+		else:
+			return 'Error while adding user'
+	except Exception as e:
+		print(e)
+	finally:
+		cursor.close() 
+		conn.close()
+
+
+
+
+
+    isim = request.form.get('isim')
+    sifre = request.form.get('sifre')
+    bolum = request.form.get('bolum')
+    numara = request.form.get('numara')
+    sinif = request.form.get('sinif')
+
+
+
+
+
+     form = LoginForm()
+    kull = Kullanici.query.filter_by(isim=form.isim.data).first()
+    if kull:
+            if check_password_hash(kull.sifre, form.sifre.data):
+                login_user(kull, remember=form.remember.data)
+                return redirect(url_for('dashboard'))
+
+    return render_template('login.html', form=form)
+
+
+
+
+
+class userAddForm(FlaskForm):
+    isim = StringField('isim', validators=[DataRequired(), Length(min=1, max=15)])
+    sifre = PasswordField('sifre', validators=[DataRequired(), Length(min=4, max=80)])
+    bolum = StringField('bolum', validators=[DataRequired(), Length(min=1, max=15)])
+    numara = StringField('numara', validators=[DataRequired(), Length(min=1, max=15)])
+    sinif = StringField('sinif', validators=[DataRequired(), Length(min=1, max=15)])
+
+
+
+
+
+    def friend_delete(friend_id):
+
+    item = app_db.session.query(Friend).filter(Friend.id == friend_id).first()
+    if item is None:
+        abort(403)
+
+    form = FriendDeleteForm(obj=item)
+
+    item_name = item.name
+    if form.validate_on_submit():
+        app_db.session.delete(item)
+        app_db.session.commit()
+        flash('Deleted friend: ' + item_name, 'info')
+        return redirect(url_for('manage_data.friends_list'))
+
+    return render_template('item_delete.html', title='Delete friend', item_name=item_name, form=form)
+
+
+
+
+
+
+
+
+<div class="tbl_user">
+    <p style="font-family: Arial, sans-serif;
+    font-size: 24px;
+    color:black;">
+    <strong>Dersler Tablosu</strong></p>
+  <table class="table table-secondary" >
+    <thead>
+       <th scope="col">ID</th>
+       <th scope="col">Ders Adı</th>
+       <th scope="col">Ders Kodu</th>
+       <th scope="col">Ders Sınıfı</th>
+       <th scope="col">Ders Bölüm</th>
+       <th scope="col">Ders Eğitmeni</th>
+    
+   </thead>
+  <tbody>
+    {% for i in dersIslem %}
+    <tr>
+      <th>{{i.ders_id}}</th>
+      <th>{{i.ders_adi}}</th>
+      <th>{{i.ders_kodu}}</th>
+      <th>{{i.ders_sinif}}</th>
+      <th>{{i.ders_bolum}}</th>
+      <th>{{i.ders_egitmen}}</th>
+
+    </tr>
+    
+    {% endfor %}
+  
+  </tbody>
+  </table>
+  </div>
+
+
+
+
+  
+@app.route('/egitmen_guncelle' , methods=['GET'], strict_slashes=False)
+@login_required
+
+def egitmen_guncelle_render():
+    
+    egitmen = Egitmenler.query.all()
+    return render_template('egitmen_guncelle.html', egitmen=egitmen)
+
+
+@app.route('/egitmen_guncelle/<id>', methods=['GET','POST'], strict_slashes=False)        
+@login_required
+def egitmen_guncelle(id):
+    form = egitmenGuncelle()
+    egitmen = Egitmenler.query.filter_by(egitmen_id=id).first()
+    egitmen_adi=egitmen.egitmen_adi
+    egitmen_soyadi=egitmen.egitmen_soyadi
+    egitmen_mail=egitmen.egitmen_mail
+    egitmen_bolum=egitmen.egitmen_bolum
+    db.session.delete(egitmen)
+    db.session.commit()
+    if request.method == ['POST','GET']:
+        
+        egitmen_adi = form.egitmen_adi.data
+        egitmen_soyadi = form.egitmen_soyadi.data
+        egitmen_mail = form.egitmen_mail.data 
+        egitmen_bolum = form.egitmen_bolum.data
+        yeni_egitmen = Egitmenler(egitmen_id=id,egitmen_adi=egitmen_adi, egitmen_soyadi=egitmen_soyadi, egitmen_mail=egitmen_mail, egitmen_bolum=egitmen_bolum)
+        db.session.add(yeni_egitmen)
+        db.session.commit() 
+        return redirect(url_for('egitmen_islemleri'))       
+    return render_template('egitmen_ekle.html', form=form)
